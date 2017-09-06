@@ -1,0 +1,261 @@
+/* =================================
+  Base Element Styles
+==================================== */
+
+* {
+	box-sizing: border-box;
+}
+
+body {
+	font: 1em/1.5 'Open Sans', sans-serif;
+	color: #373737;
+	background: #F5795D;
+	margin: 2.5em 0;
+}
+
+a {
+	text-decoration: none;
+}
+
+h1,
+h3 {
+	text-transform: uppercase;
+}
+
+h3 {
+	font-size: 1.3em;
+	line-height: 1.25em;
+	margin-top: .85em;
+	margin-bottom: .5em;
+}
+
+p {
+	font-size: .875em;
+	line-height: 1.4;
+	margin: 0 0 1.5em;
+}
+
+
+
+/* =================================
+  Base Layout Styles
+==================================== */
+
+/* ---- Layout Containers ---- */
+
+.container {
+	width: 94.02985075%;
+	max-width: 1260px;
+	background: #fff;
+	margin: auto;
+}
+
+.main-header {
+	text-align: center;
+	padding: 2.8em 0;
+}
+
+.photo-container {
+	text-align: center;
+	margin-bottom: 4em;
+}
+
+.original-pos {
+	/*background-color: lightgrey;*/
+	height: 100%;
+	display: block;
+	line-height: 0;
+}
+
+/* ---- Page Elements ---- */
+
+.name {
+	font-size: 1.65em;
+	font-weight: 800;
+	margin: 0 0 1.5em;
+	line-height: 1;
+}
+
+.name:hover {
+	transform: scale(1.5);
+	text-shadow: 20px 20px 10px rgba(0,0,0,.5);
+	transition: .8s cubic-bezier(0.68, -0.55, 0.265, 1.55); 
+}
+
+.name span {
+	font-weight: 300;
+	margin-left: -7px;
+}
+
+.logo {
+	width: 45px;
+	margin-bottom: .4em;
+	cursor: pointer;
+}
+
+.logo:hover {
+	transform: rotate(-360deg) scale(1.5);
+}
+
+.photo {
+	position: relative;
+	line-height: 0;
+	margin-bottom: 2em;
+	overflow: hidden;
+}
+
+.photo-container img {
+ 	max-width: 100%;
+}
+
+/* ---- Photo Overlay ---- */
+
+.photo-overlay {
+	color: #fff;
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	padding-left: 20px;
+	padding-right: 20px;
+
+	display: flex; /* For centering text inside .photo-overlay */
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	background: rgba(0,0,0, .5);
+
+	opacity: 0;	/* For transition */
+	transition: opacity .5s;
+}
+
+.photo-overlay:hover {
+	opacity: 1;
+}
+
+.photo-overlay h3 {
+	margin-top: 0;
+}
+
+.slide .photo-overlay {
+	opacity: 1;
+	background: #F5795D;
+}
+
+/* ---- Footer ---- */
+
+footer {
+  font-size: 0.75em;
+  text-align: center;
+  clear: both;
+  padding-top: 50px;
+}
+
+.social-icon {
+  width: 25px;
+  height: 25px;
+  margin: 0 5px;
+	border-radius: 50%;
+}
+
+.social-icon:hover {
+	transform: scale(1.5);
+}
+
+#copy {
+	display: block;
+}
+
+/* ---- Float clearfix ---- */
+
+.clearfix::after {
+	content: " ";
+	display: table;
+	clear: both;
+}
+
+
+
+/* =================================
+  Image Transforms & Transitions
+==================================== */
+
+/* -- Row 1 --------- */
+
+img {
+	transition: transform .5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+img:hover {
+	transform: rotate(5deg) scale(1.1);
+}
+
+/* -- Row 2 --------- */
+
+.photo img {
+	transform-origin: 50% 50%;			/* it means top left corner of the image*/
+}
+
+.photo:hover img {
+	transform: scale(1.2);
+}
+
+/* -- Row 3 --------- */
+
+.slide .photo-overlay,
+.slide img {
+	transition: transform .6s ease-out;
+}
+
+.slide .photo-overlay {
+	transform: translateX(-100%);
+}
+
+.slide:hover .photo-overlay {
+	transform: translate(0);
+}
+
+.slide:hover img {
+	transform: translateX(100%);
+}
+
+
+
+/* =================================
+  Media Queries
+==================================== */
+
+@media (min-width: 0) and (max-width: 768px) {
+	.container {
+		padding: 0 1.225em 2.5em;
+	}
+}
+
+@media (min-width: 769px) {
+	.container {
+		padding: 0 2.25em 3em;
+	}
+	.photo-container {
+		width: 48%;
+		float: left;
+		margin-left: 4%;
+	}
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+	.photo-container:nth-child(2n+1) {
+		margin-left: 0;
+		clear: left;
+	}
+}
+
+@media (min-width: 1025px) {
+	.photo-container {
+		width: 30.63973064%;
+	}
+	.photo-container:nth-child(3n+1) {
+		margin-left: 0;
+		clear: left;
+	}
+}
