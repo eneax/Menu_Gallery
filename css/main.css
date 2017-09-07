@@ -194,7 +194,7 @@ img:hover {
 /* -- Row 2 --------- */
 
 .photo img {
-	transform-origin: 50% 50%;			/* it means top left corner of the image*/
+	transform-origin: 50% 50%;
 }
 
 .photo:hover img {
